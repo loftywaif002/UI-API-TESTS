@@ -114,9 +114,13 @@ export async function makeFiveLegalOrangeMoves(page: Page) {
 
 /**** CARD GAME HELPERS ***/
 // Function to check if a player has blackjack
+
 export function checkBlackjack(cards) {
-  const values = cards.map(card => card.value);
-  return (values.includes('10') && values.includes('JACK') && values.includes('QUEEN') && values.includes('KING'));
+  const values = cards.map(card => card.value); // Getting all card values
+
+  // Check if the hand contains an Ace and a 10-point card, in blackjack ACE=11
+  const hasAce = values.includes('ACE');
+  const hasTenPointCard = values.includes('10') || values.includes('JACK') || values.includes('QUEEN') || values.includes('KING');
+
+  return hasAce && hasTenPointCard;
 }
-
-

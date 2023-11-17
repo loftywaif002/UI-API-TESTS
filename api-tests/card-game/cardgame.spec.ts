@@ -47,6 +47,6 @@ test('CARD Game API Test', async ({page}) => {
 
     expect(shuffleResponse).toHaveProperty('shuffled', true);
  
-   
+    expect(dealResponse).toHaveProperty('cards');
 });
 
