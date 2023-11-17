@@ -112,3 +112,11 @@ export async function makeFiveLegalOrangeMoves(page: Page) {
 }
 
 
+/**** CARD GAME HELPERS ***/
+// Function to check if a player has blackjack
+export function checkBlackjack(cards) {
+  const values = cards.map(card => card.value);
+  return (values.includes('10') && values.includes('JACK') && values.includes('QUEEN') && values.includes('KING'));
+}
+
+
